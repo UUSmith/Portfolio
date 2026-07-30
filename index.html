@@ -3,11 +3,238 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wesley Smith Engineering Portfolio</title>
+  <title>Wesley Smith | Optomechanical Engineer</title>
+  <meta name="description" content="Engineering portfolio of Wesley Smith, an optomechanical engineer specializing in precision optical instrumentation, prototype development, rugged hardware, system integration, and technical problem solving.">
+  <style>
+    :root {
+      --navy: #16324f;
+      --navy-dark: #0d2238;
+      --orange: #d97a2b;
+      --cream: #fbfaf7;
+      --white: #ffffff;
+      --text: #1a1a1a;
+      --muted: #5e6a73;
+      --line: #d9e1e8;
+      --shadow: 0 12px 32px rgba(13, 34, 56, 0.10);
+      --radius: 18px;
+      --max-width: 1180px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: var(--text); background: var(--cream); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(calc(100% - 36px), var(--max-width)); margin: 0 auto; }
+    header { position: sticky; top: 0; z-index: 20; background: rgba(251,250,247,.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(22,50,79,.10); }
+    .nav { min-height: 70px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { font-weight: 800; letter-spacing: .02em; color: var(--navy); }
+    .nav-links { display: flex; gap: 22px; flex-wrap: wrap; color: var(--muted); font-size: .95rem; }
+    .nav-links a:hover { color: var(--orange); }
+    .hero { background: radial-gradient(circle at top right, rgba(217,122,43,.16), transparent 34%), linear-gradient(135deg, var(--navy-dark), var(--navy)); color: var(--white); padding: 96px 0 84px; }
+    .hero-grid { display: grid; grid-template-columns: 1.45fr .75fr; gap: 54px; align-items: center; }
+    .eyebrow { display: inline-block; color: #f3b77f; font-size: .82rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 16px; }
+    h1 { margin: 0; font-size: clamp(3rem, 8vw, 5.7rem); line-height: .98; letter-spacing: -.045em; }
+    .hero h2 { margin: 18px 0 0; font-size: clamp(1.3rem, 3vw, 2.1rem); color: #d9e2ea; font-weight: 500; }
+    .hero-copy { max-width: 760px; margin-top: 26px; color: #e7edf2; font-size: 1.08rem; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 32px; }
+    .button { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0 20px; border-radius: 999px; font-weight: 700; transition: transform .2s ease, box-shadow .2s ease; }
+    .button:hover { transform: translateY(-2px); }
+    .button-primary { background: var(--orange); color: var(--white); box-shadow: 0 8px 22px rgba(217,122,43,.28); }
+    .button-secondary { border: 1px solid rgba(255,255,255,.38); color: var(--white); }
+    .hero-panel { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.16); border-radius: var(--radius); padding: 28px; }
+    .hero-panel h3 { margin-top: 0; font-size: 1rem; text-transform: uppercase; letter-spacing: .10em; color: #f3b77f; }
+    .hero-panel ul { margin: 0; padding-left: 20px; color: #e7edf2; }
+    section { padding: 78px 0; }
+    .section-heading { max-width: 760px; margin-bottom: 36px; }
+    .section-heading h2 { margin: 0 0 10px; color: var(--navy); font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -.03em; }
+    .section-heading p { margin: 0; color: var(--muted); font-size: 1.05rem; }
+    .projects { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 24px; }
+    .project-card { position: relative; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow); overflow: hidden; min-height: 280px; display: flex; flex-direction: column; }
+    .project-card::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 5px; background: var(--orange); }
+    .project-label { color: var(--orange); font-size: .78rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+    .project-card h3 { color: var(--navy); font-size: 1.5rem; margin: 12px 0 10px; line-height: 1.2; }
+    .project-card p { color: var(--muted); margin: 0 0 16px; }
+    .project-card ul { margin: 0 0 24px; padding-left: 20px; }
+    .project-link { margin-top: auto; color: var(--orange); font-weight: 800; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 42px; align-items: start; }
+    .about-card { background: var(--white); border-radius: var(--radius); padding: 30px; border: 1px solid var(--line); box-shadow: var(--shadow); }
+    .about-card h3 { margin-top: 0; color: var(--navy); }
+    .ownership { background: var(--navy); color: var(--white); }
+    .ownership .section-heading h2 { color: var(--white); }
+    .ownership .section-heading p { color: #d9e2ea; }
+    .ownership-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; }
+    .ownership-item { padding: 22px; border-radius: 14px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.13); }
+    .ownership-item strong { display: block; color: #f3b77f; margin-bottom: 8px; }
+    .contact { text-align: center; }
+    .contact-box { max-width: 780px; margin: 0 auto; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 42px; box-shadow: var(--shadow); }
+    .contact-box h2 { color: var(--navy); margin-top: 0; }
+    footer { background: var(--navy-dark); color: #c8d4df; padding: 26px 0; font-size: .9rem; }
+    .footer-content { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    @media (max-width: 860px) {
+      .hero-grid, .projects, .about-grid { grid-template-columns: 1fr; }
+      .ownership-grid { grid-template-columns: repeat(2,1fr); }
+      .hero { padding-top: 72px; }
+      .hero-panel { max-width: 560px; }
+    }
+    @media (max-width: 620px) {
+      .nav { align-items: flex-start; flex-direction: column; padding: 16px 0; }
+      .nav-links { gap: 14px; }
+      .ownership-grid { grid-template-columns: 1fr; }
+      section { padding: 58px 0; }
+      .project-card, .about-card, .contact-box { padding: 24px; }
+    }
+  </style>
 </head>
 <body>
-  <h1>Wesley Smith</h1>
-  <h2>Optomechanical Engineer</h2>
-  <p>Engineering portfolio under development.</p>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top">WESLEY SMITH</a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#ownership">Technical Ownership</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Engineering Portfolio</span>
+          <h1>Wesley Smith</h1>
+          <h2>Optomechanical Engineer</h2>
+          <p class="hero-copy">I design, build, integrate, and troubleshoot multidisciplinary hardware systems spanning precision optics, mechanics, embedded electronics, automation, environmental qualification, and manufacturing.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#projects">View Projects</a>
+            <a class="button button-secondary" href="#contact">Contact Me</a>
+          </div>
+        </div>
+        <aside class="hero-panel">
+          <h3>Core Focus</h3>
+          <ul>
+            <li>Precision optical instrumentation</li>
+            <li>Prototype development and fabrication</li>
+            <li>Optical alignment and calibration</li>
+            <li>Rugged optomechanical systems</li>
+            <li>System integration and commissioning</li>
+            <li>Root cause analysis and technical risk reduction</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Representative Projects</h2>
+          <p>Selected systems and experiments that demonstrate how I approach technically difficult, multidisciplinary hardware problems.</p>
+        </div>
+        <div class="projects">
+          <article class="project-card">
+            <span class="project-label">Optical Instrumentation</span>
+            <h3>SPAD Fluorescence Lifetime Architecture</h3>
+            <p>A next generation time resolved detection concept integrating precision optics, detector technology, electronics, mechanics, and computational analysis.</p>
+            <ul>
+              <li>Originated the concept and coauthored a successful $1.5M proposal</li>
+              <li>Architected the optical and detector system</li>
+              <li>Directed prototype development and technical risk reduction</li>
+            </ul>
+            <span class="project-link">Project page coming soon</span>
+          </article>
+
+          <article class="project-card">
+            <span class="project-label">Distributed Imaging</span>
+            <h3>Automated Imaging Platform</h3>
+            <p>A scalable, ruggedized imaging architecture integrating cameras, optics, embedded computing, illumination, sensing, calibration, and automated test.</p>
+            <ul>
+              <li>Owned system architecture, integration, and verification</li>
+              <li>Designed sealed optomechanical hardware and optical interfaces</li>
+              <li>Developed fixtures, prototypes, and calibration systems</li>
+            </ul>
+            <span class="project-link">Project page coming soon</span>
+          </article>
+
+          <article class="project-card">
+            <span class="project-label">Laser Systems</span>
+            <h3>Laser Platform Modernization</h3>
+            <p>An end to end modernization of a precision laser processing platform combining optical, motion, thermal, electrical, and software subsystems.</p>
+            <ul>
+              <li>Integrated CO2 and fiber laser technologies</li>
+              <li>Redesigned motion controls and beam steering hardware</li>
+              <li>Commissioned and validated the complete system</li>
+            </ul>
+            <span class="project-link">Project page coming soon</span>
+          </article>
+
+          <article class="project-card">
+            <span class="project-label">Independent Engineering Project</span>
+            <h3>Audi RS4 Powertrain Integration</h3>
+            <p>Full powertrain recommissioning following major mechanical disassembly, including custom integration work, fabrication, diagnostics, debugging, and validation.</p>
+            <ul>
+              <li>Fabricated custom brackets, tooling, and service aids</li>
+              <li>Resolved interacting electrical, hydraulic, cooling, and engine faults</li>
+              <li>Completed subsystem commissioning and operational validation</li>
+            </ul>
+            <span class="project-link">Project page coming soon</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-heading">
+          <h2>About My Work</h2>
+          <p>My career has progressed from mechanical design into precision optomechanical systems, automated instrumentation, and technical leadership.</p>
+        </div>
+        <div class="about-grid">
+          <div class="about-card">
+            <h3>Hands On Engineering</h3>
+            <p>I am most effective when I can move freely between CAD, the machine shop, the optics laboratory, system integration, and field troubleshooting. I enjoy personally building, aligning, calibrating, debugging, and improving complex hardware.</p>
+          </div>
+          <div class="about-card">
+            <h3>Multidisciplinary Ownership</h3>
+            <p>I have led programs and subsystems spanning optics, mechanics, electronics, embedded computing, software, manufacturing, suppliers, verification, environmental testing, and deployment. I remain deeply involved in the technical details while helping teams make clear engineering tradeoffs.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ownership" class="ownership">
+      <div class="container">
+        <div class="section-heading">
+          <h2>How I Approach Technical Ownership</h2>
+          <p>Difficult projects rarely fail because of one isolated component. They fail at interfaces, assumptions, and untested interactions.</p>
+        </div>
+        <div class="ownership-grid">
+          <div class="ownership-item"><strong>Define the real problem</strong>Clarify the actual need, constraints, risks, and success criteria before committing to an architecture.</div>
+          <div class="ownership-item"><strong>Build to learn</strong>Use prototypes, fixtures, tests, and instrumentation to replace assumptions with evidence.</div>
+          <div class="ownership-item"><strong>Trace failures across interfaces</strong>Investigate mechanical, optical, electrical, thermal, software, manufacturing, and human factors together.</div>
+          <div class="ownership-item"><strong>Commission the full system</strong>Stay engaged through integration, validation, deployment, and the final details required for reliable operation.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="contact-box">
+          <h2>Let's Build Something Difficult</h2>
+          <p>I am interested in optomechanical engineering, precision instrumentation, advanced hardware development, and technical leadership opportunities.</p>
+          <div class="hero-actions" style="justify-content:center;">
+            <a class="button button-primary" href="mailto:doubleusmith@hotmail.com">Email Wesley</a>
+            <a class="button" style="border:1px solid var(--line); color:var(--navy);" href="https://www.linkedin.com/in/wesley-smith-b9140a19" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <span>&copy; 2026 Wesley Smith</span>
+      <span>Optomechanical Engineering &bull; Prototype Development &bull; System Integration</span>
+    </div>
+  </footer>
 </body>
 </html>
